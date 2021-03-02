@@ -1,8 +1,11 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Client {
+
+    static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     static StringBuilder stringBuilder = new StringBuilder();
 
@@ -44,7 +47,7 @@ public class Client {
     }
     public String toString(){
         stringBuilder.append("Client: " + name);
-        stringBuilder.append(" (" + birthDate.toString() + ")");
+        stringBuilder.append(" (" + sdf.format(birthDate) + ")");
         stringBuilder.append(" - " + email + "\n");
         return stringBuilder.toString();
     }

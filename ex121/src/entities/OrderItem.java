@@ -37,10 +37,12 @@ public class OrderItem {
     public Double subTotal(){
         return this.product.getPrice() * this.quantity;
     }
+
     public String toString(){
-        stringBuilder.append(getProduct().toString());
-        stringBuilder.append(", Quantity: " + quantity);
-        stringBuilder.append(", Subtotal: " + subTotal());
-        return stringBuilder.toString();
+        return product.getName() +
+                ", " + product.getPrice()
+                + ", Quantity: " + quantity
+                + ", Subtotal: " + subTotal()
+                + "\n";
     }
 }

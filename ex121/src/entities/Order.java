@@ -2,11 +2,16 @@ package entities;
 
 import entities.enums.OrderStatus;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class Order {
+
+    static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     private Date moment;
     private OrderStatus status;
@@ -61,8 +66,8 @@ public class Order {
 
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("ORDER SUMMARY:\n");
-        stringBuilder.append("Order moment: " + moment.toString() + "\n");
+        stringBuilder.append("\nORDER SUMMARY:\n");
+        stringBuilder.append("Order moment: " + sdf.format(moment) + "\n");
         stringBuilder.append("Order status: " + status.toString() + "\n");
         stringBuilder.append(client.toString());
 
