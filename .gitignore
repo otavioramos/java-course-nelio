@@ -1,6 +1,12 @@
 .idea/
 *.iml
 ex121/out/
+ex100/build/
+ex100/nbproject/
+*idea/
+*out/
+*.iml
+*build/
 
 # gitignore pronto github
 
