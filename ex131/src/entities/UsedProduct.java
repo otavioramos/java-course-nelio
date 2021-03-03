@@ -33,7 +33,7 @@ public class UsedProduct extends Product {
 		strBuilder.append(super.getName());
 		strBuilder.append(" (used) ");
 		strBuilder.append("$ ");
-		strBuilder.append(super.getPrice());
+		strBuilder.append(String.format("%.2f", super.getPrice()));
 		strBuilder.append(" (Manufacture date: ");
 		strBuilder.append(sdf.format(manufactureDate) + ")\n");
 		return strBuilder.toString();

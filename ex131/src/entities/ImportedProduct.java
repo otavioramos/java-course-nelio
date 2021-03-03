@@ -26,9 +26,9 @@ public class ImportedProduct extends Product {
 		StringBuilder strBuilder = new StringBuilder();
 		strBuilder.append(super.getName());
 		strBuilder.append(" $ ");
-		strBuilder.append(totalPrice());
+		strBuilder.append(String.format("%.2f", totalPrice()));
 		strBuilder.append(" (Customs fee: $ ");
-		strBuilder.append(customsFee);
+		strBuilder.append(String.format("%.2f", customsFee));
 		strBuilder.append(")\n");
 		return strBuilder.toString();
 	}
