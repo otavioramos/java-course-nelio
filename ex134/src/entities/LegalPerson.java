@@ -4,6 +4,14 @@ public class LegalPerson extends Payer {
 
     private Integer numberOfEmployees;
 
+    public LegalPerson() {
+        super();
+    }
+    public LegalPerson(String name, Double anualIncome, Integer numberOfEmployees) {
+        super(name, anualIncome);
+        this.numberOfEmployees = numberOfEmployees;
+    }
+
     // Getter and Setter
     public Integer getNumberOfEmployees() {
         return numberOfEmployees;
