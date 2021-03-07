@@ -1,5 +1,8 @@
 package model.entities;
 
+import model.exceptions.WithdrawLimitException;
+import model.exceptions.WithdrawNoBalanceException;
+
 public class Account {
 
     private Integer number;
@@ -17,10 +20,45 @@ public class Account {
         this.withdrawLimit = withdrawLimit;
     }
 
-    public void deposit(Double amount){
-
+    public Integer getNumber() {
+        return number;
     }
-    public void withdraw(Double amount){
 
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public String getHolder() {
+        return holder;
+    }
+
+    public void setHolder(String holder) {
+        this.holder = holder;
+    }
+
+    public Double getWithdrawLimit() {
+        return withdrawLimit;
+    }
+
+    public void setWithdrawLimit(Double withdrawLimit) {
+        this.withdrawLimit = withdrawLimit;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void deposit(Double amount){
+        balance += amount;
+    }
+    public void withdraw(Double amount) {
+        if (amount > withdrawLimit){
+            throw new WithdrawLimitException("Withdraw error: The amount exceeds withdraw limit");
+        }else if (amount > balance){
+            throw new WithdrawNoBalanceException("Withdraw error: Not enough balance");
+        }else {
+            balance -= amount;
+            System.out.println("New balance: " + String.format("%.2f", balance));
+        }
     }
 }
